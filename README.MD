@@ -2,7 +2,7 @@
 
 ## What is it?
 
-This a [mobile-ready website](http://nealrs.github.io/expo/) for distributing and filtering table numbers at your hackathon expo. [Here's an example](http://nealrs.github.io/mhacks6/) from a real hackathon (MHacks 6), with over 250 projects.
+This is a [mobile-ready website](http://nealrs.github.io/expo/) for distributing and filtering table numbers at your hackathon expo. [Here's an example](http://nealrs.github.io/mhacks6/) from a real hackathon (MHacks 6), with over 250 projects.
 
 Everything is rendered client-side and the site is hosted on GitHub pages, so there's no backend / scaling issues to worry about. All you have to do is update the `data.csv` file and push it up to your `gh-pages` branch.
 
