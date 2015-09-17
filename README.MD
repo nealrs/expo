@@ -106,7 +106,7 @@ Everything is rendered client-side and the site is hosted on GitHub pages, so th
 
     Once you're done, go back to your browser and make sure everything is loads correctly.
 
-    **NOTE** Using Excel or a spreadsheet app is crucial right now. Do _not_ edit `data.csv` with a text editor.)
+    **NOTE** Using Excel or a spreadsheet app is crucial right now. Do _not_ edit `data.csv` with a text editor. Quinlan, I'm looking at you :unamused:)
 
     **ALSO** You must save this file as a CSV and commit+push it GitHub to update the list online.
 
