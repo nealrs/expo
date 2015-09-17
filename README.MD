@@ -28,7 +28,7 @@ Everything is rendered client-side and the site is hosted on GitHub pages, so th
 
   ![](http://i.imgur.com/sf0FlXd.png)
 
-### Adding your data & making it yours
+### Adding your hackathon data
 
 1. Open up `index.html` and locate the following code blocks:
 
