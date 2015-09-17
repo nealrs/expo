@@ -2,7 +2,7 @@
 
 ## What is it?
 
-This a mobile-ready website for distributing and filtering table numbers at your hackathon expo. [Here's an example](http://nealrs.github.io/mhacks6/) from a real hackathon (MHacks 6), with over 250 projects.
+This a [mobile-ready website](http://nealrs.github.io/expo/) for distributing and filtering table numbers at your hackathon expo. [Here's an example](http://nealrs.github.io/mhacks6/) from a real hackathon (MHacks 6), with over 250 projects.
 
 Everything is rendered client-side and the site is hosted on GitHub pages, so there's no backend / scaling issues to worry about. All you have to do is update the `data.csv` file and push it up to your `gh-pages` branch.
 
@@ -46,7 +46,7 @@ Everything is rendered client-side and the site is hosted on GitHub pages, so th
   - Change `HackathonName` to the name of your hackathon (e.g. PennApps XII)
   - Change `DevpostURL` to your hackathon's Devpost URL (e.g. http://mhacks6.devpost.com)
 
-  2. Open `data.csv` in **MS Excel or another spreadsheet app**
+2. Open `data.csv` in **MS Excel or another spreadsheet app**
 
   ![](http://i.imgur.com/uDbPhe3.png)
 
@@ -86,7 +86,7 @@ Everything is rendered client-side and the site is hosted on GitHub pages, so th
 
     I'd also recommend commenting out the `E{{expo}} ` tag unless you're running multiple expos.
 
-  3. Once the submission deadline is over, Go to the metrics tab on your hackathon dashboard and run a submissions export, _without_ PII.
+3. Once the submission deadline is over, Go to the metrics tab on your hackathon dashboard and run a submissions export, _without_ PII.
 
     ![](http://i.imgur.com/8YIT03y.png)
 
@@ -99,7 +99,7 @@ Everything is rendered client-side and the site is hosted on GitHub pages, so th
 
     Save your CSV!
 
-  4. Assign Expo & table numbers
+4. Assign Expo & table numbers
 
     The app _does not_ automatically assign table / expo numbers. We leave that up to you. There's no one-size-fits-all solution, so you can use whatever system works for you. However, every row should have a unique combination of Expo & table numbers.
 
@@ -109,11 +109,11 @@ Everything is rendered client-side and the site is hosted on GitHub pages, so th
 
     **ALSO** You must save this file as a CSV and commit+push it GitHub to update the list online.
 
-  5. Once you're satisfied, save everything, commit it, and push it up to your `gh-pages` branch.
+5. Once you're satisfied, save everything, commit it, and push it up to your `gh-pages` branch.
 
   Your table numbers will be live at http://your_github_username.github.io/expo
 
-### Custom URL
+### Custom URLs
 
 If you have your own landing page / site for your hackathon, we suggest setting up a CNAME for a more user friendly URL. e.g. http://expo.funhacks.com. (It's a lot easier than http://derp78.github.com/hackathonname.)
 
@@ -136,5 +136,9 @@ Finding specific hacks, filtering for keywords, and providing sponsors with thei
   Email them the link so they know exactly which tables to go to -- or take it a step further and print them a copy. The app contains custom print styles that save paper & ink.
 
   ![](http://i.imgur.com/ap9ITUW.png)
+
+### Mobile browsing
+
+We've included some 'sensible' mobile styles, which hide the category / special columns on small screens and collapse the borders. 
 
 ## Dasss it!
