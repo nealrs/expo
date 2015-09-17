@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<!--
+
+Run a find replace on:
+- DevpostURL -> Your Devpost URL: http://pennappsxii.devpost.com
+- HackathonName -> Your Hackathon Name -> PennApps XII
+
+You can also use your own favico or Hackathon logo/header.
+
+-->
+
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>HackathonName Expo</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,700,900,400italic' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' type='text/css' href='css/style.css'>
+  <link rel="shortcut icon" href="http://nealrs.github.io/devpost-follow-button/icon/devpost-128.png">
+  <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+  <script type='text/javascript' src='js/papaparse.min.js'></script>
+  <script type='text/javascript' src='js/mustache.min.js'></script>
+  <script type='text/javascript' src="js/list.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div id="header">
+      <h1><a href="DevpostURL" title="HackathonName Expo"><img src="http://nealrs.github.io/devpost-follow-button/icon/devpost.svg" style="vertical-align:middle; width:60px;"> HackathonName</a><h1>
+    </div>
+    <div id="fullTable"></div>
+  </div>
+
+  <script id="template" type="x-tmpl-mustache">
+    <div class="search_container">
+      <input class="search" type="search" placeholder="Filter by sponsor prize, project name, category or whatever" id="filter"/>
+    </div>
+    <table id="expoTable">
+      <thead>
+        <tr>
+          <th class="number">Table</th>
+          <th class="name">Project</th>
+          <th class="prize">Sponsor Prizes</th>
+          <th class="cat">Category</th> <!--You can comment out this column if you don't need it-->
+        </tr>
+      </thead>
+      <tbody class="list">
+        {{#data}}
+          <tr>
+            <td class="number">E{{expo}} T{{table}}</td>
+            <td class="name"><a href="{{{link}}}" target="_blank">{{project}}</a></td>
+            <td class="prize">{{sponsors}}</td>
+            <td class="cat">{{category}}</td> <!--You can comment out this column if you don't need it-->
+          </tr>
+        {{/data}}
+      </tbody>
+    </table>
+  </script>
+  <br>
+  <div id="footer">
+
+    <p>Sponsors, want analytics about who's using your API, what they're building, and where?</p>
+    <p>Organizers, want your own slick expo / table number app?</p>
+    <p>Email <a href="mailto:hackathons@devpost.com"> hackathons@devpost.com</a></p>
+
+    <a href="http://devpost.com"><img src="http://devpost0.assetspost.com/assets/shared/devpost_logo-646bdf6ac6663230947a952f8d354cad.svg" style="height: 30px;"></a>
+
+  </div>
+
+  <script type="text/javascript">
+
+    var tableData;
+    function getParam(variable){
+      var query = window.location.search.substring(1);
+      var vars = query.split("&");
+      for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+        if(pair[0] == variable){return pair[1];}
+      }
+      return(false);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+      // CSV format: https://gist.githubusercontent.com/nealrs/510b6ab766d97b42f572/raw/92188f386410fe9ebdfdea381562a4ddff4a02b7/test.csv
+
+      Papa.parse("data/data.csv", {
+        download: true,
+        header: true,
+        complete: function(results) {
+          tableData = results;
+
+          // print raw data
+          //console.log(tableData);
+          // add commas to sponsor prize data
+          for (var x in tableData.data) {
+            var s = tableData.data[x]['sponsors'];
+            tableData.data[x]['sponsors'] = s.replace(/,/ig, ", ");
+          }
+          // print cleaned data
+          console.log(tableData);
+
+          // process and render template
+          var template = $('#template').html();
+          Mustache.parse(template);   // optional, speeds up future uses
+          var rendered = Mustache.render(template, tableData);
+          //console.log(rendered);
+          $('#fullTable').html(rendered);
+
+          // list.js search init
+          var listOptions = {
+            valueNames: [ 'number', 'name', 'prize', 'cat' ],
+            page: 1000000
+          };
+          var userList = new List('fullTable', listOptions);
+
+          // grab filter url param and activate filter
+          var filter = decodeURI(getParam("filter"));
+          if (filter != "false"){
+            $("#filter").val(filter);
+            userList.search(filter);
+          };
+  	    }
+      });
+
+    });
+  </script>
+</body>
+</html>
