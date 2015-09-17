@@ -45,6 +45,7 @@ Everything is rendered client-side and the site is hosted on GitHub pages, so th
 
   - Change `HackathonName` to the name of your hackathon (e.g. PennApps XII)
   - Change `DevpostURL` to your hackathon's Devpost URL (e.g. http://mhacks6.devpost.com)
+  - Add your own favicon & hackathon logo, we've put some placeholders in for now.
 
 2. Open `data.csv` in **MS Excel or another spreadsheet app**
 
