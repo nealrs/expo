@@ -12,7 +12,7 @@ Everything is rendered client-side and the site is hosted on GitHub pages, so th
 
 ### Local setup
 
-1. [Fork this repository](https://github.com/nealrs/expo#fork-destination-box) or  clone it to your local machine
+1. [Fork this repository](https://github.com/nealrs/expo#fork-destination-box) or clone it to your local machine
 
   `git clone https://github.com/nealrs/expo.git`
 
@@ -140,6 +140,6 @@ Finding specific hacks, filtering for keywords, and providing sponsors with thei
 
 ### Mobile browsing
 
-We've included some 'sensible' mobile styles, which hide the category / special columns on small screens and collapse the borders. 
+We've included some 'sensible' mobile styles, which hide the category / special columns on small screens and collapse the borders.
 
 ## Dasss it!
